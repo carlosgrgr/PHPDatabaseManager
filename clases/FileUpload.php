@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class FileUpload {
 
     private $destino="./", $nombre="as", $tamaño=1000000, $parametro;

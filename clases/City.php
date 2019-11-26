@@ -1,6 +1,6 @@
 <?php
+namespace DBManager;
 
-//POJO - plana
 class City {
     private $ID, $Name, $CountryCode, $District, $Population;
     

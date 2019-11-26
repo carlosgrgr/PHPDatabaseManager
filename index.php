@@ -5,8 +5,13 @@
         <title></title>
     </head>
     <body>
-        <?php
-        
+        <nav>
+            <ul>
+                <li><a href="pais/">Paises</li>
+                <li><a href="pais/new.php">Nuevo país</li>
+            </ul>
+        </nav>
+        <?php  
         ?>
     </body>
 </html>

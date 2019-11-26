@@ -1,16 +1,18 @@
 <?php
 
+namespace DBManager;
+
 class DataBase {
 
     private $conexion, $consulta;
 
     function __construct() {
         try {
-            $this->conexion = new PDO(
+            $this->conexion = new \PDO(
                     'mysql:host=' . Constant::SERVER . ';' .
                     'dbname=' . Constant::DATABASE, Constant::DBUSER, Constant::DBPASSWORD, array(
-                PDO::ATTR_PERSISTENT => true,
-                PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
+                \PDO::ATTR_PERSISTENT => true,
+                \PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
             );
         } catch (PDOException $e) {
             var_dump($e);

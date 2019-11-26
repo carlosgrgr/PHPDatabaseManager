@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Usuario {
     
     private $nombre, $clave;

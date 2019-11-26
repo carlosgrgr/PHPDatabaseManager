@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Filter {
     
     static function isEmail($valor){

@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Request {
 
     //filtra y limpia valores <script>...</script>

@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Country {
     private $Code, $Name, $Continent, $Region, $SurfaceArea, $IndepYear, 
             $Population, $LifeExpectancy, $GNP, $GNPOld, $LocalName, 

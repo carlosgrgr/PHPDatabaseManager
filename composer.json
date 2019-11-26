@@ -1,0 +1,17 @@
+{
+    "name": "carlosgrgr/php-database-manager",
+    "authors": [
+        {
+            "name": "Carlos Garcia Rodriguez",
+            "email": "carlosgrgr@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "DBManager\\": "clases/"
+        }
+    }
+}

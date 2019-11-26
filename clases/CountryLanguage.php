@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class CountryLanguage {
     private $CountryCode, $Language, $IsOfficial, $Percentage;
     

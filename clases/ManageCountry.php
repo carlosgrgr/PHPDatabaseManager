@@ -1,5 +1,6 @@
 <?php
 
+namespace DBManager;
 
 class ManageCountry {
     private $bd = null;

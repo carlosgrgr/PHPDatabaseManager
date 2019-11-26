@@ -11,6 +11,10 @@
  *
  * @author alum
  */
+
+namespace DBManager;
+
+
 class FileUploadMultiple {
     
     

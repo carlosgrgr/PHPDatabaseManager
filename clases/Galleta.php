@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Galleta {
     
     static function set($nombre,$valor,$tiempo = null){

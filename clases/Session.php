@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Session {
 
     private static $iniciada = false;

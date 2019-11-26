@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Util {
     
     static function getSelect($name, $parametros, $valorSeleccionado=null, $blanco=true, $atributos="", $id=null ){

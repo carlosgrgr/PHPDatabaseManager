@@ -1,5 +1,7 @@
 <?php
 
+namespace DBManager;
+
 class Server {
     
     static function getServerName(){

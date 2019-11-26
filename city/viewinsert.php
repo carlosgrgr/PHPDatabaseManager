@@ -14,11 +14,11 @@ $gestorCountry = new ManageCountry($bd);
         veces, una vez en hidden para que no se modifique y otra visible para
         modificarla, hay que darle dos nombres diferentes -->
         <form action="phpinsert.php" method="POST">
-            <input type="text" name="Name" value="" /><br/>
+            <input type="text" name="Name" value="" placeholder="Nombre"/><br/>
             <!--<input type="text" name="CountryCode" value="" /><br/>-->
             <?php echo Util::getSelect("CountryCode", $gestorCountry->getValuesSelect());?><br/>
-            <input type="text" name="District" value="" /><br/>
-            <input type="number" name="Population" value="" /><br/>
+            <input type="text" name="District" value="" placeholder="Provincia"/><br/>
+            <input type="number" name="Population" value="" placeholder="Población" /><br/>
             <input type="submit" value="edicion"/>
         </form>
     </body>
