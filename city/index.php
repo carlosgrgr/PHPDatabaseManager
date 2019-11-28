@@ -27,7 +27,7 @@ var_dump($bd->getError());
 include '../layouts/header.php';
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">DBM</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,7 +37,7 @@ include '../layouts/header.php';
                 <a class="nav-link" href="./index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="city/index.php">Ciudades</a>
+                <a class="nav-link" href="index.php">Ciudades</a>
             </li>
         </ul>
     </div>
@@ -57,7 +57,7 @@ include '../layouts/header.php';
                         foreach ($ciudades as $indice => $ciudad) {
                             echo '<tr>';
                             echo $ciudad->toTable();
-                            echo "<td><a class='borrar' href='phpdelete.php?ID={$ciudad->getID()}'>borrar</a> <a href='edit.php?id={$ciudad->getID()}'>editar</a></td>";
+                            echo "<td><a href='edit.php?id={$ciudad->getID()}'>editar</a> <a class='borrar' href='phpdelete.php?ID={$ciudad->getID()}'>borrar</a></td>";
                         }
                         echo '</table>';   
                     }
@@ -67,7 +67,6 @@ include '../layouts/header.php';
                     echo "&gt; ";
                     echo "&gt;&gt;";
                 ?>
-
                 <a href="?page=1">Primero</a>
                 <a href="?page=<?php echo max(1, $page-1);?>">Anterior</a>
                 <a href="?page=<?php echo min($page+1, $pages);?>">Siguiente</a>

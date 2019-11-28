@@ -8,7 +8,7 @@ use Component\City\ManageCity;
 
 $bd = new DBMDataBase();
 $gestor = new ManageCity($bd);
-$id = DBMRequest::get("ID");
+$id = DBMRequest::get("id");
 $city = $gestor->get($id);
 // $gestorCountry = new ManageCountry($bd);
 // var_dump($gestorCountry->getValuesSelect());
@@ -26,7 +26,7 @@ include '../layouts/header.php';
                 <a class="nav-link" href="./index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="city/index.php">Ciudades</a>
+                <a class="nav-link" href="../city/index.php">Ciudades</a>
             </li>
         </ul>
     </div>
@@ -40,13 +40,22 @@ include '../layouts/header.php';
                 veces, una vez en hidden para que no se modifique y otra visible para
                 modificarla, hay que darle dos nombres diferentes -->
                 <form action="action/edit.php" method="POST">
-                    <input type="text" name="name" value="<?php echo $city->getName(); ?>" /><br/>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $city->getName(); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="district">District</label>
+                        <input type="text" class="form-control" name="district" id="district" placeholder="District" value="<?php echo $city->getDistrict(); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="population">Population</label>
+                        <input type="number" class="form-control" name="population" id="population" placeholder="Population" value="<?php echo $city->getPopulation(); ?>">
+                    </div>
                     <!-- <input type="text" name="CountryCode" value="< ?php echo $city->getCountryCode(); ?>" /><br/>-->
-                    <?php // echo Util::getSelect("CountryCode", $gestorCountry->getValuesSelect(), $city->getCountryCode(), false);?><br/>
-                    <input type="text" name="district" value="<?php echo $city->getDistrict(); ?>" /><br/>
-                    <input type="number" name="population" value="<?php echo $city->getPopulation(); ?>" /><br/>
+                    <?php // echo Util::getSelect("CountryCode", $gestorCountry->getValuesSelect(), $city->getCountryCode(), false);?>
                     <input type="hidden" name="pkID" value="<?php echo $city->getID(); ?>" /><br/>
-                    <input type="submit" value="edicion"/>
+                    <input class="btn btn-primary" type="submit" value="Editar"/>
                 </form>
             </div>
         </div>

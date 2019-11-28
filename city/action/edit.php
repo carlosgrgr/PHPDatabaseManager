@@ -1,16 +1,22 @@
 <?php
-require '../clases/AutoCarga.php';
-$bd = new DataBase();
+require '../../vendor/autoload.php';
+
+use DBManager\DataBase\DBMDataBase;
+use DBManager\Request\DBMRequest;
+use Component\City\MyCity;
+use Component\City\ManageCity;
+
+$bd = new DBMDataBase();
+
 $gestor = new ManageCity($bd);
-/* ¿Quien es el usuario que intenta insertar? / Validación de datos */
-$ID = Request::post("pkID");
-$Name = Request::post("Name");
-$CountryCode = Request::post("CountryCode");
-$District = Request::post("District");
-$Population = Request::post("Population");
-$city = new City($ID, $Name, $CountryCode, $District, $Population);
+$id = DBMRequest::post("pkID");
+$name = DBMRequest::post("name");
+// $CountryCode = DBMRequest::post("CountryCode");
+$district = DBMRequest::post("district");
+$population = DBMRequest::post("population");
+$city = new MyCity($id, $name, $district, $population);
 $r = $gestor->set($city);
 $bd->close();
-//echo $r;
-//var_dump($bd->getError());
-header("Location:index.php?op=edit&r=$r");
+// echo $r;
+// var_dump( $bd->getError() );
+header("Location:../index.php?op=edit&r=$r");
