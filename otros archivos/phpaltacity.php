@@ -18,8 +18,8 @@ try {
         PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
     );
 } catch (PDOException $e) {
-    var_dump($conexion->errorInfo());
-    var_dump($e);
+//     var_dump($conexion->errorInfo());
+//     var_dump($e);
     echo 'no se ha podido conectar';
     exit();
 }
@@ -36,7 +36,7 @@ $sentencia->bindValue("District", $District);
 $sentencia->bindValue("Population", $Population);
 
 $resultado = $sentencia->execute();
-var_dump($conexion->errorInfo());
+// var_dump($conexion->errorInfo());
 
 
 if($sentencia->execute()){
@@ -51,7 +51,7 @@ if($sentencia->execute()){
         
 }else{
         echo "<h1>Mal</h1>";
-        var_dump($sentencia->errorInfo());
+        // var_dump($sentencia->errorInfo());
 }
 
 $conexion = null;

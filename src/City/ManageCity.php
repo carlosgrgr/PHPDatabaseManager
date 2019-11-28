@@ -67,7 +67,7 @@ class ManageCity {
     
     function getList($pagina=1, $nrpp=DBMConstant::NRPP){
          $registroInicial = ($pagina-1)*$nrpp;
-         $this->bd->select($this->tabla, "*", "1=1", array(), "Name", "$registroInicial, $nrpp");
+         $this->bd->select($this->tabla, "*", "1=1", array(), "id", "$registroInicial, $nrpp");
          $r=array();
          while($fila =$this->bd->getRow()){
              $city = new MyCity();

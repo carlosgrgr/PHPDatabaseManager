@@ -31,8 +31,8 @@ try {
         PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
     );
 } catch (PDOException $e) {
-    var_dump($conexion->errorInfo());
-    var_dump($e);
+    // var_dump($conexion->errorInfo());
+    // var_dump($e);
     echo 'no se ha podido conectar';
     exit();
 }
@@ -66,7 +66,7 @@ $sentencia->bindValue("HeadOfState", $HeadOfState);
 $sentencia->bindValue("Capital", null);
 $sentencia->bindValue("Code2", $Code2);
 $resultado = $sentencia->execute();
-var_dump($conexion->errorInfo());
+// var_dump($conexion->errorInfo());
 
 $conexion = null;
 echo $resultado;

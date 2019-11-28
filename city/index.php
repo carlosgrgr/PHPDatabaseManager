@@ -17,11 +17,10 @@ if($page===null || $page ===""){
 $registros = $gestor->count();
 $pages = ceil($registros /  DBMConstant::NRPP);
 
-echo $pages;
 $ciudades = $gestor->getList($page);
 $op = DBMRequest::get("op");
 $r = DBMRequest::get("r");
-var_dump($bd->getError());
+// var_dump($bd->getError());
 
 
 include '../layouts/header.php';
@@ -51,7 +50,6 @@ include '../layouts/header.php';
                     if($op!=null){
                         echo "<h1>La operación $op ha dado como resultado $r</h1>";
                     }
-                
                     if ( $ciudades ) {
                         echo '<table class="table">';
                         foreach ($ciudades as $indice => $ciudad) {
@@ -61,7 +59,6 @@ include '../layouts/header.php';
                         }
                         echo '</table>';   
                     }
-
                     echo "&lt;&lt; ";
                     echo "&lt; ";
                     echo "&gt; ";

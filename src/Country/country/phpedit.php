@@ -9,6 +9,6 @@ $r = $gestor->set($country, $pkCode);
 $bd->close();
 
 echo $r;
-var_dump($bd->getError());
+// var_dump($bd->getError());
 
 //header("Location:index.php?op=edit&r=$r");

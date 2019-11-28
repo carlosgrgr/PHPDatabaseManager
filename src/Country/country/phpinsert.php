@@ -19,6 +19,6 @@ $r = $gestor->insert($country);
 $bd->close();
 
 echo $r;
-var_dump($bd->getError());
+// var_dump($bd->getError());
 
 header("Location:index.php?op=insert&r=$r");

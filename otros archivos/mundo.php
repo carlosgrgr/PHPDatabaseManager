@@ -16,8 +16,8 @@ $continent = Request::post("Continent");
                     PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8')
                 );
         }   catch(PDOException $e){
-                var_dump($conexion->errorInfo());
-                var_dump($e);
+                // var_dump($conexion->errorInfo());
+                // var_dump($e);
                 echo 'no se ha podido conectar';
                 exit();
         }
