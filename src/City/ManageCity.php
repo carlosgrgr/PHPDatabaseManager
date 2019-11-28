@@ -1,13 +1,16 @@
 <?php
 
-namespace DBManager;
+namespace Component\City;
+
+use DBManager\DataBase\DBMDataBase;
+use DBManager\Constant\DBMConstant;
 
 class ManageCity {
     
     private $bd = null;
     private $tabla = "city";
     
-    function __construct(DataBase $bd) {
+    function __construct(DBMDataBase $bd) {
         $this->bd = $bd;
     }
     
@@ -61,7 +64,7 @@ class ManageCity {
         return $this->bd->insert($this->tabla, $parametrosSet);
     }
     
-    function getList($pagina=1, $nrpp=Constant::NRPP){
+    function getList($pagina=1, $nrpp=DBMConstant::NRPP){
          $registroInicial = ($pagina-1)*$nrpp;
          $this->bd->select($this->tabla, "*", "1=1", array(), "Name, CountryCode", "$registroInicial, $nrpp");
          $r=array();

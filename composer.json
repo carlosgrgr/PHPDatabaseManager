@@ -1,5 +1,6 @@
 {
     "name": "carlosgrgr/php-database-manager",
+    "description": "",
     "authors": [
         {
             "name": "Carlos Garcia Rodriguez",
@@ -11,7 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "DBManager\\": "clases/"
+            "DBManager\\": "vendor/",
+            "Component\\": "src/"
         }
     }
 }
