@@ -87,4 +87,12 @@ class MyCity {
         }
         return $r;
     }
+
+    public function toTable() {
+        $r = '';
+        foreach ($this as $key => $valor) { 
+            $r .= "<td>$valor</td>";
+        }
+        return $r;
+    }
 }

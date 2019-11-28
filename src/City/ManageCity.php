@@ -4,6 +4,7 @@ namespace Component\City;
 
 use DBManager\DataBase\DBMDataBase;
 use DBManager\Constant\DBMConstant;
+use Component\City\MyMyCity;
 
 class ManageCity {
     
@@ -20,7 +21,7 @@ class ManageCity {
         $parametros['ID'] = $ID;
         $this->bd->select($this->tabla, "*", "id=:ID", $parametros);
         $fila=$this->bd->getRow();
-        $city = new City();
+        $city = new MyCity();
         $city->set($fila);
         return $city;
     }
@@ -36,15 +37,15 @@ class ManageCity {
         return $this->bd->delete($this->tabla, $parametros);
     }
     
-    function erase(City $city){
+    function erase(MyCity $city){
         return $this->delete($city->getID());
     }
     
-    function set(City $city){
+    function set(MyCity $city){
         //Update de todos los campos menos el id, el id se usara como el where para el update numero de filas modificadas
         $parametrosSet=array();
         $parametrosSet['Name']=$city->getName();
-        $parametrosSet['CountryCode']=$city->getCountryCode();
+        // $parametrosSet['CountryCode']=$city->getCountryCode();
         $parametrosSet['District']=$city->getDistrict();
         $parametrosSet['Population']=$city->getPopulation();
         
@@ -54,11 +55,11 @@ class ManageCity {
         
     }
     
-    function insert(City $city){
+    function insert(MyCity $city){
         //Se pasa un objeto city y se inserta, se devuelve el id del elemento con el que se ha insertado
         $parametrosSet=array();
         $parametrosSet['Name']=$city->getName();
-        $parametrosSet['CountryCode']=$city->getCountryCode();
+        // $parametrosSet['CountryCode']=$city->getCountryCode();
         $parametrosSet['District']=$city->getDistrict();
         $parametrosSet['Population']=$city->getPopulation();
         return $this->bd->insert($this->tabla, $parametrosSet);
@@ -66,10 +67,10 @@ class ManageCity {
     
     function getList($pagina=1, $nrpp=DBMConstant::NRPP){
          $registroInicial = ($pagina-1)*$nrpp;
-         $this->bd->select($this->tabla, "*", "1=1", array(), "Name, CountryCode", "$registroInicial, $nrpp");
+         $this->bd->select($this->tabla, "*", "1=1", array(), "Name", "$registroInicial, $nrpp");
          $r=array();
          while($fila =$this->bd->getRow()){
-             $city = new City();
+             $city = new MyCity();
              $city->set($fila);
              $r[]=$city;
          }

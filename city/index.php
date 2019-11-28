@@ -15,8 +15,8 @@ if($page===null || $page ===""){
 }
 /*Nos devuelve el numero de paginas*/
 $registros = $gestor->count();
-$pages = ceil($registros/  DBMConstant::NRPP);
-/**/
+$pages = ceil($registros /  DBMConstant::NRPP);
+
 echo $pages;
 $ciudades = $gestor->getList($page);
 $op = DBMRequest::get("op");
@@ -46,21 +46,26 @@ include '../layouts/header.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2><a href="viewInsert.php">Insertar Ciudad</a></h2>
+                <h2><a href="insert.php">Insertar Ciudad</a></h2>
                 <?php
-                if($op!=null){
-                    echo "<h1>La operación $op ha dado como resultado $r</h1>";
-                }
-                foreach ($ciudades as $indice => $ciudad) {
-                    echo $ciudad;
-                    echo "<a class='borrar' href='phpdelete.php?ID={$ciudad->getID()}'>borrar</a> ";
-                    echo "<a href='viewedit.php?ID={$ciudad->getID()}'>editar</a>";
-                    echo "<br>";
-                }
-                echo "&lt;&lt; ";
-                echo "&lt; ";
-                echo "&gt; ";
-                echo "&gt;&gt;";
+                    if($op!=null){
+                        echo "<h1>La operación $op ha dado como resultado $r</h1>";
+                    }
+                
+                    if ( $ciudades ) {
+                        echo '<table class="table">';
+                        foreach ($ciudades as $indice => $ciudad) {
+                            echo '<tr>';
+                            echo $ciudad->toTable();
+                            echo "<td><a class='borrar' href='phpdelete.php?ID={$ciudad->getID()}'>borrar</a> <a href='edit.php?id={$ciudad->getID()}'>editar</a></td>";
+                        }
+                        echo '</table>';   
+                    }
+
+                    echo "&lt;&lt; ";
+                    echo "&lt; ";
+                    echo "&gt; ";
+                    echo "&gt;&gt;";
                 ?>
 
                 <a href="?page=1">Primero</a>

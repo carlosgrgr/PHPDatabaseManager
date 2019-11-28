@@ -1,7 +1,10 @@
 <?php
-require '../clases/AutoCarga.php';
-$bd = new DataBase();
-$gestorCountry = new ManageCountry($bd);
+require '../vendor/autoload.php';
+
+use DBManager\DataBase\DBMDataBase;
+
+$bd = new DBMDataBase();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,13 +16,11 @@ $gestorCountry = new ManageCountry($bd);
         <!-- Si la clave principal no es autonumerica tengo que ponerla dos 
         veces, una vez en hidden para que no se modifique y otra visible para
         modificarla, hay que darle dos nombres diferentes -->
-        <form action="phpinsert.php" method="POST">
-            <input type="text" name="Name" value="" placeholder="Nombre"/><br/>
-            <!--<input type="text" name="CountryCode" value="" /><br/>-->
-            <?php echo Util::getSelect("CountryCode", $gestorCountry->getValuesSelect());?><br/>
-            <input type="text" name="District" value="" placeholder="Provincia"/><br/>
-            <input type="number" name="Population" value="" placeholder="Población" /><br/>
-            <input type="submit" value="edicion"/>
+        <form action="action/insert.php" method="POST">
+            <input type="text" name="name" value="" placeholder="Nombre"/><br/>
+            <input type="text" name="district" value="" placeholder="Provincia"/><br/>
+            <input type="number" name="population" value="" placeholder="Población" /><br/>
+            <input type="submit" value="Añadir"/>
         </form>
     </body>
 </html>
