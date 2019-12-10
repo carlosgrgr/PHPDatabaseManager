@@ -44,26 +44,40 @@ include '../layouts/header.php';
 <main>
     <div class="container">
         <div class="row">
+            <div class="col-md-12 mt-4 mb-4">
+                <h2>
+                    <a href="insert.php">Insertar Ciudad</a>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
-                <h2><a href="insert.php">Insertar Ciudad</a></h2>
                 <?php
                     if($op!=null){
                         echo "<h1>La operación $op ha dado como resultado $r</h1>";
                     }
                     if ( $ciudades ) {
                         echo '<table class="table">';
-                        foreach ($ciudades as $indice => $ciudad) {
+                    ?>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>District</th>
+                            <th>Population</th>
+                            <th>Acciones</th>
+                        </tr>
+                    <?php foreach ($ciudades as $indice => $ciudad) {
                             echo '<tr>';
                             echo $ciudad->toTable();
-                            echo "<td><a href='edit.php?id={$ciudad->getID()}'>editar</a> <a class='borrar' href='phpdelete.php?ID={$ciudad->getID()}'>borrar</a></td>";
+                            echo "<td colspan='2'><a href='edit.php?id={$ciudad->getID()}'>editar</a> <a class='borrar' href='phpdelete.php?ID={$ciudad->getID()}'>borrar</a></td>";
                         }
                         echo '</table>';   
                     }
-                    echo "&lt;&lt; ";
-                    echo "&lt; ";
-                    echo "&gt; ";
-                    echo "&gt;&gt;";
                 ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mt-4">
                 <a href="?page=1">Primero</a>
                 <a href="?page=<?php echo max(1, $page-1);?>">Anterior</a>
                 <a href="?page=<?php echo min($page+1, $pages);?>">Siguiente</a>
