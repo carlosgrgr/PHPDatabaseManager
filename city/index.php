@@ -81,7 +81,7 @@ include '../layouts/header.php';
                 <a href="?page=1">Primero</a>
                 <a href="?page=<?php echo max(1, $page-1);?>">Anterior</a>
                 <a href="?page=<?php echo min($page+1, $pages);?>">Siguiente</a>
-                <a href="?page=<?php echo $pages; ?>">Ultimo</a>
+                <a href="?page=<?php echo $pages; ?>">Ultimo</a> 
             </div>
         </div>
     </div>
